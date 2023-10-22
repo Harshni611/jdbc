@@ -1,38 +1,35 @@
 package corejava;
-
+import java.util.Scanner;
 public class Basic {
-	public int addnumbers(int a, int b) {
-		int sum = a + b;
-		return sum;
-		
-	}
-	public int subnumbers(int a, int b) {
-		int sub = a - b;
-		return sub;
-		
-	}
-	public int multiplynumbers(int a, int b) {
-		int multiply = a * b;
-		return multiply;
-		
-	}
-	public int dividenumbers(int a, int b) {
-		int divide = a/b;
-		return divide;
-		
-	}
-	public static void main(String[] args) {
-		int num1 = 50;
-		int num2 = 10;
-		Basic obj = new Basic();
-		int addition  = obj.addnumbers(num1, num2);
-		int subtraction  = obj.subnumbers(num1, num2);
-		int multiplication  = obj.multiplynumbers(num1, num2);
-		int division  = obj.dividenumbers(num1, num2);
-		System.out.println(addition);
-		System.out.println(subtraction);
-		System.out.println(multiplication);
-		System.out.println(division);
-	}
 
+    private int[][] array;
+    public void getArray(int size) {
+        Scanner scanner = new Scanner(System.in);
+        array = new int[size][size];
+
+        System.out.println("Enter the array values:");
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                array[i][j] = scanner.nextInt();
+            }
+        }
+    }
+    public void displayArray() {
+        System.out.println("Array elements are:");
+        for (int[] row : array) {
+            for (int num : row) {
+                System.out.print(num + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the size of array:");
+        int size = scanner.nextInt();
+        Basic obj = new Basic();
+        obj.getArray(size);
+        obj.displayArray();
+    }
 }
